@@ -26,7 +26,6 @@ function repeatChar(count, ch) {
 
 // Create a function that resets the game to the next word in the array (this will be used at the end of each round)
 
-
 function renderGame() {
   // If there are still more words in the array, set the display and write it to the page
   if (currentIndex <= (secretWords.length - 1)) {
@@ -69,15 +68,18 @@ function modifyDisplay(indexArray,display,letterGuess) {
   return display;
 }
 
+//initialize the game on page load:
+
 renderGame();
 
 // MAIN LOGIC
 // =============================================================================
 
-  
+  //when a key is pressed and released:
+
     document.onkeyup = function(event) {
 
-      //if the number of tries exceeds the max number of tries, end the function
+      //if the number of keystrokes exceeds the max number of guesses for that round, end the function
 
       if (tries >= maxTries) {
         document.querySelector("#results").innerHTML = "Sorry, you've run out of tries for this bread. Try again with the next bread";
@@ -121,7 +123,6 @@ renderGame();
       document.querySelector("#results").innerHTML = "Try to guess the next letter: " + display;
     }
 
-    //increment current index & reset the game
 
   } //end logic 
 
